@@ -252,6 +252,7 @@ INSTALLED_APPS = (
     "mezzanine.accounts",
     "mezzanine.mobile",
     "tastypie",
+    "tastypie_swagger",
     "dublincore",
     "hs_core"
 )
@@ -369,3 +370,5 @@ else:
     set_dynamic_settings(globals())
 
 INSTALLED_APPS += HYDROSHARE_APPS
+
+TASTYPIE_SWAGGER_API_MODULE = 'hydroshare.urls.v1_api'
