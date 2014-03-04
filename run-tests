@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ $PWD == *hydroshare ]] 
+then
+
+docker run -t -i -name hydroshare-tests \
+      -link hydroshare-redis:redis \
+      -link hydroshare-postgis:postgis \
+      -p 0.0.0.0:80:80 -expose 22 \
+      -v $PWD:/home/docker/hydroshare
+      dev.hydroshare.org:5999/hydroshare /usr/bin/python /home/docker/hydroshare/manage.py runserver 0.0.0.0:80
+
+docker rm hydroshare-tests
+
+else
+  echo "ERROR: Must start test server from the hydroshare git repository root."
+fi
