@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker kill hydroshare-dev
+docker rm hydroshare-dev
+
