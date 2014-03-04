@@ -254,7 +254,6 @@ INSTALLED_APPS = (
     "tastypie",
     "dublincore",
     "hs_core",
-    "feb_18_tutorial",
 )
 
 # List of processors used by RequestContext to populate the context.
