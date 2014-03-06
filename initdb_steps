@@ -21,6 +21,6 @@ echo "createdb: pgsql password:"
 createdb -U docker -h $POSTGIS_HOST docker
 echo "psql password"
 psql -U docker -h $POSTGIS_HOST -c 'create extension postgis;'
-python manage.py syncdb --migrate --noinput
+su docker -c "python manage.py syncdb --migrate --noinput"
 echo "add superuser"
-python manage.py createsuperuser
+su docker -c "python manage.py createsuperuser"
