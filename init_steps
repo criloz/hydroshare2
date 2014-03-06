@@ -14,4 +14,4 @@ su docker -c "python manage.py migrate"
 su docker -c "python manage.py collectstatic --noinput"
 export PYTHONPATH=/home/docker/hydroshare
 su docker -c "PYTHONPATH=/home/docker/hydroshare celery worker -A celeryworker -E -D"
-uwsgi --ini /home/docker/hydroshare/uwsgi.ini
+su docker -c "uwsgi --ini /home/docker/hydroshare/uwsgi.ini"
