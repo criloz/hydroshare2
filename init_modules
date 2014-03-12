@@ -5,5 +5,5 @@
 # ##########################################################
 echo "initializing modules"
 cd /home/docker/hydroshare
-cd dublincore
-python setup.py install
+#cd dublincore
+#python setup.py install

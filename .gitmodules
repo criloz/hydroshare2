@@ -4,3 +4,4 @@
 [submodule "dublincore"]
     path = dublincore
     url = https://github.com/hydroshare/django-dublincore.git
+    branch = apponly

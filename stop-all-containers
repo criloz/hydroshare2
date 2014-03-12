@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker stop hydroshare-dev
+docker stop hydroshare-postgis
+docker stop hydroshare-redis
