@@ -7,7 +7,7 @@ docker run -t -i -name hydroshare-migrations \
       -link hydroshare-redis:redis \
       -link hydroshare-postgis:postgis \
       -p 0.0.0.0:80:80 -expose 22 \
-      -v $PWD:/home/docker/hydroshare
+      -v $PWD:/home/docker/hydroshare \
       dev.hydroshare.org:5999/hydroshare /usr/bin/python /home/docker/hydroshare/manage.py schemamigration --auto
 
 docker rm hydroshare-migrations
@@ -16,7 +16,7 @@ docker run -t -i -name hydroshare-migrations \
       -link hydroshare-redis:redis \
       -link hydroshare-postgis:postgis \
       -p 0.0.0.0:80:80 -expose 22 \
-      -v $PWD:/home/docker/hydroshare
+      -v $PWD:/home/docker/hydroshare \
       dev.hydroshare.org:5999/hydroshare /usr/bin/python /home/docker/hydroshare/manage.py migrate 
 
 docker rm hydroshare-migrations
