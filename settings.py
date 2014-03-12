@@ -240,6 +240,8 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "django.contrib.gis",
+    "theme",
+    "theme.blog_mods",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -292,7 +294,7 @@ MIDDLEWARE_CLASSES = (
     # "mezzanine.core.middleware.SSLRedirectMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
-    # "ga_resources.middleware.PagePermissionsViewableMiddleware",
+    "ga_resources.middleware.PagePermissionsViewableMiddleware",
 )
 
 # Store these package names here as they may change in the future since
