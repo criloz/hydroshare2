@@ -240,6 +240,8 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "django.contrib.gis",
+    "theme",
+    "theme.blog_mods",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -254,7 +256,7 @@ INSTALLED_APPS = (
     "tastypie",
     "tastypie_swagger",
     "dublincore",
-    "hs_core"
+    "hs_core",
 )
 
 # List of processors used by RequestContext to populate the context.

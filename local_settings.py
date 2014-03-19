@@ -9,10 +9,10 @@ NEVERCACHE_KEY = "7b205669-41dd-40db-9b96-c6f93b66123496a56be1-607f-4dbf-bf62-33
 
 ALLOWED_HOSTS = "*"
 
-REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
-REDIS_PORT = int( os.environ.get('REDIS_PORT', 6379) ) 
-POSTGIS_HOST = os.environ.get('POSTGIS_HOST', 'localhost')
-POSTGIS_PORT = int( os.environ.get('POSGIS_PORT', 5432) )
+REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'localhost')
+REDIS_PORT = 6379 
+POSTGIS_HOST = os.environ.get('POSTGIS_PORT_5432_TCP_ADDR', 'localhost')
+POSTGIS_PORT = 5432
 POSTGIS_DB = os.environ.get('POSTGIS_DB', 'docker')
 POSTGIS_PASSWORD = os.environ.get('POSTGIS_PASSWORD', 'docker')
 POSTGIS_USER = os.environ.get('POSTGIS_USER', 'docker')
