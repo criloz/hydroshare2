@@ -7,6 +7,7 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
+from hs_core.api import v1_api
 
 admin.autodiscover()
 
@@ -29,6 +30,17 @@ if getattr(settings, "PACKAGE_NAME_FILEBROWSER") in settings.INSTALLED_APPS:
         ("^admin/media-library/", include("%s.urls" %
                                         settings.PACKAGE_NAME_FILEBROWSER)),
     )
+
+# Put API URLs before Mezzanine so that Mezzanine doesn't consume them
+urlpatterns += patterns('',
+                        (r'^api/', include(v1_api.urls) ),
+                        url("^api/%s/doc/" % (v1_api.api_name,),
+                            include('tastypie_swagger.urls', 
+                                    namespace='tastypie_swagger'),
+                            kwargs={'tastypie_api_module':'hs_core.api.v1_api',
+                                    'namespace':'tastypie_swagger'}
+                            ),
+)
 
 urlpatterns += patterns('',
 
