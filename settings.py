@@ -257,6 +257,7 @@ INSTALLED_APPS = (
     "tastypie_swagger",
     "dublincore",
     "hs_core",
+    "hs_scholar_profile"
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -374,3 +375,6 @@ else:
 INSTALLED_APPS += HYDROSHARE_APPS
 
 TASTYPIE_SWAGGER_API_MODULE = 'hydroshare.urls.v1_api'
+
+#
+AUTH_PROFILE_MODULE = "hs_scholar_profile.Scholar"
