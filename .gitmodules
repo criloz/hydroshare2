@@ -8,5 +8,8 @@
 [submodule "theme"]
     path = theme
     url = https://github.com/hydroshare/theme.git
+[submodule "hs_scholar_profile"]
+    path = hs_scholar_profile
+    url = https://github.com/hydroshare/hs_scholar_profile.git
 
 
