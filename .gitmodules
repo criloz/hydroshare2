@@ -1,6 +1,7 @@
 [submodule "hs_core"]
     path = hs_core
     url = https://github.com/hydroshare/hs_core.git
+    branch = master
 [submodule "dublincore"]
     path = dublincore
     url = https://github.com/hydroshare/django-dublincore.git
@@ -8,8 +9,10 @@
 [submodule "theme"]
     path = theme
     url = https://github.com/hydroshare/theme.git
+    branch = master
 [submodule "hs_scholar_profile"]
-    path = hs_scholar_profile
-    url = https://github.com/hydroshare/hs_scholar_profile.git
+	path = hs_scholar_profile
+	url = https://github.com/hydroshare/hs_scholar_profile.git
+    branch = master
 
 
