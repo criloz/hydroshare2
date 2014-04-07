@@ -41,6 +41,7 @@ urlpatterns += patterns('',
                             kwargs={'tastypie_api_module':'hs_core.api.v1_api',
                                     'namespace':'tastypie_swagger'}
                             ),
+                        url('^hsapi/', include('hs_core.urls'))
 )
 
 urlpatterns += patterns('',
