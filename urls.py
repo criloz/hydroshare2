@@ -22,7 +22,8 @@ urlpatterns = i18n_patterns("",
     url("^admin/", include(admin.site.urls)),
     url('^ga_resources/', include('ga_resources.urls')),
     url('^ga_interactive/', include('ga_interactive.urls')),
-    url('^r/(?P<shortkey>[A-z0-9\-_]+)', 'hs_core.views.short_url')
+    url('^r/(?P<shortkey>[A-z0-9\-_]+)', 'hs_core.views.short_url'),
+    url('^party/', include('hs_scholar_profile.urls'))
 )
 
 # Filebrowser admin media library.
