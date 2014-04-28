@@ -1,4 +1,5 @@
 from __future__ import absolute_import, unicode_literals
+TEST_RUNNER='django_nose.NoseTestSuiteRunner'
 
 ######################
 # MEZZANINE SETTINGS #
@@ -240,6 +241,7 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "django.contrib.gis",
+    "django_nose",
     "theme",
     "theme.blog_mods",
     "mezzanine.boot",
