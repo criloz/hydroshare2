@@ -1,5 +1,6 @@
 #!/bin/bash
 
+service stop nginx
 cd /home/docker/hydroshare
 export POSTGIS_HOST=$POSTGIS_PORT_5432_TCP_ADDR
 export REDIS_HOST=$REDIS_PORT_6379_TCP_ADDR
