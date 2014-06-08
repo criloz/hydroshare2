@@ -253,6 +253,7 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     #"mezzanine.twitter",
+    "crispy_forms",
     "mezzanine.accounts",
     "mezzanine.mobile",
     "tastypie",
