@@ -98,9 +98,20 @@ def get_user(request):
     """authorize user based on API key if it was passed, otherwise just use the request's user.
 
     :param request:
-    :return: django.contrib.auth.User
+    :return: django.contrib.au
+    th.User
     """
     from tastypie.models import ApiKey
+
+    if 'json' in request.META['CONTENT_TYPE']:
+        try:
+            req = json.loads(request.body)
+            if 'api_key' in req:
+                api_key = ApiKey.objects.get(key=req['api_key'])
+                return api_key.user
+        except ValueError:
+            pass
+
     if 'api_key' in request.REQUEST:
         api_key = ApiKey.objects.get(key=request.REQUEST['api_key'])
         return api_key.user
