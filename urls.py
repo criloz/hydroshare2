@@ -8,6 +8,7 @@ from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
 from hs_core.api import v1_api
+from theme import views as theme
 
 admin.autodiscover()
 
@@ -23,7 +24,10 @@ urlpatterns = i18n_patterns("",
     url('^ga_resources/', include('ga_resources.urls')),
     url('^ga_interactive/', include('ga_interactive.urls')),
     url('^r/(?P<shortkey>[A-z0-9\-_]+)', 'hs_core.views.short_url'),
-    url('^party/', include('hs_scholar_profile.urls'))
+    # url('^party/', include('hs_scholar_profile.urls'))
+    url(r'^user/$', theme.UserProfileView.as_view()),
+    url(r'^user/(?P<user>.*)/', theme.UserProfileView.as_view()),
+    url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
 )
 
 # Filebrowser admin media library.

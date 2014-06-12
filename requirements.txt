@@ -29,7 +29,6 @@ django-nose==1.2
 django-picklefield==0.3.1
 django-tastypie==0.10.0
 django-tastypie-swagger==0.1.2
-django-tastytools==0.1.0
 django-timedeltafield==0.7.0
 docutils==0.11
 ecdsa==0.10
@@ -56,9 +55,7 @@ pycrypto==2.6.1
 pyparsing==2.0.1
 pyproj==1.9.3
 pysqlite==2.6.3
-python-apt==0.8.8ubuntu6
 python-dateutil==2.2
-python-debian==0.1.21-nmu2ubuntu1
 python-safe==1.1.2
 pytz==2013.9
 pyzmq==14.1.1
@@ -78,3 +75,4 @@ tornado==3.1.1
 uWSGI==1.9.20
 urllib3==1.5
 wsgiref==0.1.2
+google.foresite-toolkit
