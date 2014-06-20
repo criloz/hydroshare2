@@ -74,8 +74,19 @@ HYDROSHARE_APPS = (
     "djcelery",
     "ga_ows",
     "ga_resources",
-    "ga_irods",
+    "django_irods",
     "ga_interactive",
     "hs_core"
 )
 
+IRODS_ROOT='/tmp'
+IRODS_ICOMMANDS_PATH='/usr/bin'
+IRODS_HOST='data.hydroshare.org'
+IRODS_PORT='1247'
+IRODS_DEFAULT_RESOURCE='hsDevResource'
+IRODS_HOME_COLLECTION='/hydroZone/home/hsdev'
+IRODS_CWD='/hydroZone/home/hsdev'
+IRODS_ZONE='hydroZone'
+IRODS_USERNAME='hsdev'
+IRODS_AUTH='devwater1'
+IRODS_GLOBAL_SESSION=True
