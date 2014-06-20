@@ -242,6 +242,7 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     "django.contrib.gis",
     "django_nose",
+    "django_irods",
     "theme",
     "theme.blog_mods",
     "mezzanine.boot",
