@@ -28,6 +28,7 @@ urlpatterns = i18n_patterns("",
     url(r'^user/$', theme.UserProfileView.as_view()),
     url(r'^user/(?P<user>.*)/', theme.UserProfileView.as_view()),
     url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
+    url(r'^django_irods/', include('django_irods.urls')),
 )
 
 # Filebrowser admin media library.
