@@ -79,3 +79,10 @@ HYDROSHARE_APPS = (
     "hs_core"
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'hydroshare@hydroshare.org'
+EMAIL_HOST_PASSWORD = 'zR=D~QBxU&}+'
+EMAIL_HOST = 'gator3038.hostgator.com'
+EMAIL_PORT = '26'
+EMAIL_USE_TLS= True
+DEFAULT_FROM_EMAIL= 'hydroshare@hydroshare.org'

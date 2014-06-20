@@ -15,4 +15,9 @@
 	url = https://github.com/hydroshare/hs_scholar_profile.git
     branch = master
 
+[submodule "django_irods"]
+	path = django_irods
+	url = https://github.com/hydroshare/django-irods.git
+    branch = master
+
 
