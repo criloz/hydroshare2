@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update
+RUN apt-get update -qq
 RUN apt-get install -y python2.7-mapnik python2.7-scipy python2.7-numpy python2.7-psycopg2 cython python2.7-pysqlite2
 RUN apt-get install -y nodejs npm python-virtualenv
 RUN apt-get install -y postgresql-9.3 postgresql-client-common postgresql-common postgresql-client-9.3 redis-tools
@@ -27,9 +27,8 @@ WORKDIR /home/docker/hydroshare
 RUN pip install -r requirements.txt
 RUN rm -rf /tmp/pip-build-root
 
+EXPOSE 22 8000 3031
 
-EXPOSE 22 80 8000 443
-
+USER docker
 WORKDIR /home/docker/hydroshare
 
-CMD /bin/bash

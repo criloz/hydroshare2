@@ -1,0 +1,36 @@
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+server {
+	listen 80;
+        client_max_body_size 4096M;
+
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name localhost;
+
+        location /static/ {
+		alias /home/docker/hydroshare/static/;
+		autoindex on;
+	}
+
+	location / {
+		uwsgi_pass appserver:3031;
+		include uwsgi_params;
+	}
+
+	location /doc/ {
+		alias /usr/share/doc/;
+		autoindex on;
+		allow 127.0.0.1;
+		allow ::1;
+		deny all;
+	}
+
+}
+
+

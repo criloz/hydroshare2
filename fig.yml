@@ -1,0 +1,26 @@
+db:
+  image: jamesbring/postgresql
+redis:
+  image: dockerfile/redis
+appserver:
+  build: .
+  command: uwsgi --ini etc/uwsgi.ini
+  volumes:
+    - .:/home/docker/hydroshare
+  ports:
+    - "3031:3031"
+  links:
+    - db
+    - redis
+worker:
+  build: .
+  command: celery worker -E -A hydroshare
+  links:
+    - db
+    - redis
+webserver:
+  image: dockerfile/nginx
+  links:
+    - appserver
+  volumes:
+    - etc:/etc/nginx/sites-enabled -v logs:/var/log/nginx
