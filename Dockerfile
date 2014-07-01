@@ -10,6 +10,8 @@ RUN apt-get install -y python2.7-gdal gdal-bin libgdal-dev gdal-contrib python-p
 
 ADD . /home/docker/hydroshare
 
+RUN pip install cython
+RUN pip install numexpr
 WORKDIR /home/docker/hydroshare
 
 RUN pip install -r requirements.txt
@@ -18,6 +20,9 @@ RUN rm -rf /tmp/pip-build-root
 WORKDIR /home/docker
 
 RUN npm install carto
+
+WORKDIR /home/docker/hydroshare/pysqlite-2.6.3/
+RUN python setup.py install
 
 EXPOSE 22 80 8000 443
 
