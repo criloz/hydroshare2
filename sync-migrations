@@ -1,8 +1,8 @@
 #!/bin/bash
 
 APP=$1
-HOST=dev.hydroshare.org
-PORT=1339
+HOST=localhost
+PORT=1338
 USER=docker
 
 if [ -d "$PWD/$APP/migrations" ]; then
