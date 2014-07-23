@@ -79,7 +79,7 @@ HYDROSHARE_APPS = (
     "hs_core"
 )
 
-
+USE_IRODS=False
 IRODS_ROOT='/tmp'
 IRODS_ICOMMANDS_PATH='/usr/bin'
 IRODS_HOST='data.hydroshare.org'
