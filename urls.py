@@ -9,7 +9,10 @@ from mezzanine.conf import settings
 
 from hs_core.api import v1_api
 from theme import views as theme
+import autocomplete_light
 
+
+autocomplete_light.autodiscover()
 admin.autodiscover()
 
 # Add the urlpatterns for any custom Django applications here.
@@ -29,6 +32,7 @@ urlpatterns = i18n_patterns("",
     url(r'^user/(?P<user>.*)/', theme.UserProfileView.as_view()),
     url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
     url(r'^django_irods/', include('django_irods.urls')),
+    url(r'^autocomplete/', include('autocomplete_light.urls')),
 )
 
 # Filebrowser admin media library.
