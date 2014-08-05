@@ -257,6 +257,7 @@ INSTALLED_APPS = (
     "crispy_forms",
     "mezzanine.accounts",
     "mezzanine.mobile",
+    "autocomplete_light",
     "tastypie",
     "tastypie_swagger",
     "dublincore",
