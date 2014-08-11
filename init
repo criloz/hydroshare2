@@ -1,10 +1,10 @@
 #!/bin/bash
-###########################################################################
-# if this file is edited, then a new hydroshare container must be pushed. #
-#  developers should modify init_steps                                    #
-###########################################################################
-cd /home/docker/hydroshare
-./init_github
 
-./init_steps
-
+psql -U postgres -h postgis -w -c 'create extension postgis;'
+echo "made sure postgis was enabled on PostgreSQL"
+python manage.py syncdb --noinput
+python manage.py create_site
+python manage.py migrate
+mkdir /var/run/sshd
+/usr/sbin/sshd
+python manage.py runserver 0.0.0.0:80
