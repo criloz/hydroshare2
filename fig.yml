@@ -2,7 +2,7 @@ postgis:
   image: jamesbrink/postgresql
 redis:
   image: dockerfile/redis
-appserver:
+hydroshare:
   build: .
   environment:
     POSTGIS_HOST: postgis
@@ -11,13 +11,13 @@ appserver:
     REDIS_PORT: 6379
     POSTGIS_PASSWORD: postgres
     POSTGIS_DB: postgres
+    POSTGIS_USER: postgres
     PGPASSWORD: postgres
   volumes:
-    - "media:/home/docker/hydroshare/terrahub/static/media"
+    - "media:/home/docker/hydroshare/static/media"
   ports:
-    - "0.0.0.0:8000:8000"
-    - "0.0.0.0:1338:22"
-    - "0.0.0.0:80:80"
+    - "1338:22"
+    - "8000:8000"
   links:
     - postgis:postgis
     - redis:redis
@@ -34,7 +34,7 @@ worker:
     PGPASSWORD: postgres
     C_FORCE_ROOT: 1
   volumes_from:
-    - appserver
+    - hydroshare
   links:
     - postgis:postgis
     - redis:redis

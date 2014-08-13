@@ -13,9 +13,9 @@ REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'localhost')
 REDIS_PORT = 6379 
 POSTGIS_HOST = os.environ.get('POSTGIS_PORT_5432_TCP_ADDR', 'localhost')
 POSTGIS_PORT = 5432
-POSTGIS_DB = os.environ.get('POSTGIS_DB', 'docker')
-POSTGIS_PASSWORD = os.environ.get('POSTGIS_PASSWORD', 'docker')
-POSTGIS_USER = os.environ.get('POSTGIS_USER', 'docker')
+POSTGIS_DB = os.environ.get('POSTGIS_DB', 'postgres')
+POSTGIS_PASSWORD = os.environ.get('POSTGIS_PASSWORD', 'postgres')
+POSTGIS_USER = os.environ.get('POSTGIS_USER', 'postgres')
 
 REDIS_CONNECTION = redis.Redis(
     host=REDIS_HOST,
