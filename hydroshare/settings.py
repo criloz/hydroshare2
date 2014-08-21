@@ -4,7 +4,7 @@ TEST_RUNNER='django_nose.NoseTestSuiteRunner'
 import os
 import importlib
 
-local_settings_module = os.environ.get('LOCAL_SETTINGS', 'local_settings')
+local_settings_module = os.environ.get('LOCAL_SETTINGS', 'hydroshare.local_settings')
 
 ######################
 # MEZZANINE SETTINGS #
@@ -362,7 +362,6 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 # Allow any settings to be defined in local_settings.py which should be
 # ignored in your version control system allowing for settings to be
 # defined per machine.
-from local_settings import *
 local_settings = __import__(local_settings_module, globals(), locals(), ['*'])
 for k in dir(local_settings):
     locals()[k] = getattr(local_settings, k)

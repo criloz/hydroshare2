@@ -15,3 +15,6 @@
     url = https://github.com/JeffHeard/django_irods.git
     branch = master
 
+[submodule "hs_party"]
+	path = hs_party
+	url = https://github.com/hydroshare/hs_party

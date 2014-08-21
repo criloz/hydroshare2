@@ -38,4 +38,4 @@ worker:
   links:
     - postgis:postgis
     - redis:redis
-  command: celery worker -A celeryworker -E
+  command: celery worker -A hydroshare -E
