@@ -1,6 +1,0 @@
-#!/bin/bash
-
-docker start hydroshare-postgis
-docker start hydroshare-redis
-./create-migrations
-./run-testserver

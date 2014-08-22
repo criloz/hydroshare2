@@ -10,10 +10,6 @@
     path = theme
     url = https://github.com/hydroshare/theme.git
     branch = master
-[submodule "hs_scholar_profile"]
-    path = hs_scholar_profile
-    url = https://github.com/hydroshare/hs_scholar_profile.git
-    branch = master
 [submodule "django_irods"]
     path = django_irods 
     url = https://github.com/JeffHeard/django_irods.git

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-docker stop hydroshare-dev
-docker rm hydroshare-dev
-docker pull dev.hydroshare.org:5999/hydroshare
-
