@@ -267,6 +267,7 @@ INSTALLED_APPS = (
     "dublincore",
     "hs_core",
     "hs_party",
+    "hs_metrics",
 )
 
 # List of processors used by RequestContext to populate the context.

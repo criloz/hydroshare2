@@ -33,6 +33,8 @@ urlpatterns = i18n_patterns("",
     url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
     url(r'^django_irods/', include('django_irods.urls')),
     url(r'^autocomplete/', include('autocomplete_light.urls')),
+    url(r'^hs_metrics/', include('hs_metrics.urls')),
+
 )
 
 # Filebrowser admin media library.
@@ -52,6 +54,7 @@ urlpatterns += patterns('',
                                     'namespace':'tastypie_swagger'}
                             ),
                         url('^hsapi/', include('hs_core.urls'))
+                        url('^party/', include('hs_party.urls'))
 )
 
 urlpatterns += patterns('',
