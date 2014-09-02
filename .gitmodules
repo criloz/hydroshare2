@@ -21,3 +21,6 @@
 [submodule "hs_metrics"]
 	path = hs_metrics
 	url = https://github.com/hydroshare/hs_metrics.git
+[submodule "resource_aggregation"]
+	path = resource_aggregation
+	url = https://github.com/hydroshare/resource_aggregation.git
