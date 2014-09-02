@@ -24,3 +24,6 @@
 [submodule "resource_aggregation"]
 	path = resource_aggregation
 	url = https://github.com/hydroshare/resource_aggregation.git
+[submodule "ref_ts"]
+	path = ref_ts
+	url = https://github.com/hydroshare/ref_ts.git
