@@ -8,8 +8,10 @@ RUN npm install carto
 USER root
 WORKDIR /home/docker/hydroshare
 
+RUN apt-get install -y docker.io
 RUN pip install -r requirements.txt
 RUN pip install django-autocomplete-light
+RUN pip install docker-py
 RUN rm -rf /tmp/pip-build-root
 RUN mkdir /var/run/sshd
 RUN echo root:docker | chpasswd

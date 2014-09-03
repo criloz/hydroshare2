@@ -2,6 +2,8 @@ postgis:
   image: jamesbrink/postgresql
 redis:
   image: dockerfile/redis
+rabbitmq: 
+  image: dockerfile/rabbitmq
 hydroshare:
   build: .
   environment:
@@ -21,8 +23,9 @@ hydroshare:
   links:
     - postgis:postgis
     - redis:redis
+    - rabbitmq:rabbitmq
   command: /bin/bash init
-worker:
+defaultworker:
   build: .
   environment:
     POSTGIS_HOST: postgis
@@ -38,4 +41,23 @@ worker:
   links:
     - postgis:postgis
     - redis:redis
-  command: celery worker -A hydroshare -E
+    - rabbitmq:rabbitmq
+  command: celery worker -A hydroshare -E -Q default
+dockerworker:
+  build: .
+  environment:
+    POSTGIS_HOST: postgis
+    POSTGIS_PORT: 5432
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    POSTGIS_PASSWORD: postgres
+    POSTGIS_DB: postgres
+    PGPASSWORD: postgres
+    C_FORCE_ROOT: 1
+  volumes_from:
+    - hydroshare
+  links:
+    - postgis:postgis
+    - redis:redis
+    - rabbitmq:rabbitmq
+  command: celery worker -A hydroshare -E -Q docker_container_tasks,docker_broadcast_tasks
