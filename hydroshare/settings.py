@@ -268,6 +268,8 @@ INSTALLED_APPS = (
     "hs_core",
     "hs_party",
     "hs_metrics",
+    "hs_inst_res_ui",
+    #"hs_scholar_profile"
 )
 
 # List of processors used by RequestContext to populate the context.
