@@ -262,6 +262,7 @@ INSTALLED_APPS = (
     "tastypie_swagger",
     "dublincore",
     "hs_core",
+    "hs_inst_res_ui",
     #"hs_scholar_profile"
 )
 
