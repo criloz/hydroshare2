@@ -268,6 +268,7 @@ INSTALLED_APPS = (
     "hs_core",
     "hs_party",
     "hs_metrics",
+    "django_docker_processes"
 )
 
 # List of processors used by RequestContext to populate the context.

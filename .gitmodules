@@ -21,3 +21,9 @@
 [submodule "hs_metrics"]
 	path = hs_metrics
 	url = https://github.com/hydroshare/hs_metrics.git
+[submodule "hs_metrics"]
+	path = hs_metrics
+	url = https://github.com/hydroshare/hs_metrics.git
+[submodule "django_docker_processes"]
+	path = django_docker_processes
+	url = https://github.com/hydroshare/django_docker_processes.git
