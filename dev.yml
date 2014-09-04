@@ -13,6 +13,7 @@ hydroshare:
     POSTGIS_DB: postgres
     POSTGIS_USER: postgres
     PGPASSWORD: postgres
+    LOCAL_SETTINGS: hydroshare.dev_settings
   volumes:
     - "media:/home/docker/hydroshare/static/media"
   ports:
@@ -33,6 +34,7 @@ worker:
     POSTGIS_DB: postgres
     PGPASSWORD: postgres
     C_FORCE_ROOT: 1
+    LOCAL_SETTINGS: hydroshare.dev_settings
   volumes_from:
     - hydroshare
   links:

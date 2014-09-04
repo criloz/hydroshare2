@@ -1,6 +1,11 @@
 from __future__ import absolute_import, unicode_literals
 TEST_RUNNER='django_nose.NoseTestSuiteRunner'
 
+import os
+import importlib
+
+local_settings_module = os.environ.get('LOCAL_SETTINGS', 'hydroshare.local_settings')
+
 ######################
 # MEZZANINE SETTINGS #
 ######################
@@ -253,7 +258,6 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.galleries",
-    #"mezzanine.twitter",
     "crispy_forms",
     "mezzanine.accounts",
     "mezzanine.mobile",
@@ -262,6 +266,8 @@ INSTALLED_APPS = (
     "tastypie_swagger",
     "dublincore",
     "hs_core",
+    "hs_party",
+    "hs_metrics",
     "hs_inst_res_ui",
     #"hs_scholar_profile"
 )
@@ -358,7 +364,9 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 # Allow any settings to be defined in local_settings.py which should be
 # ignored in your version control system allowing for settings to be
 # defined per machine.
-from local_settings import *
+local_settings = __import__(local_settings_module, globals(), locals(), ['*'])
+for k in dir(local_settings):
+    locals()[k] = getattr(local_settings, k)
 
 
 ####################

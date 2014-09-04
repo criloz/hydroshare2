@@ -7,7 +7,6 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
 
-from hs_core.api import v1_api
 from theme import views as theme
 import autocomplete_light
 
@@ -33,8 +32,6 @@ urlpatterns = i18n_patterns("",
     url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
     url(r'^django_irods/', include('django_irods.urls')),
     url(r'^autocomplete/', include('autocomplete_light.urls')),
-    url(r'^hs_metrics/', include('hs_metrics.urls')),
-
 )
 
 # Filebrowser admin media library.
@@ -46,16 +43,9 @@ if getattr(settings, "PACKAGE_NAME_FILEBROWSER") in settings.INSTALLED_APPS:
 
 # Put API URLs before Mezzanine so that Mezzanine doesn't consume them
 urlpatterns += patterns('',
-                        (r'^api/', include(v1_api.urls) ),
-                        url("^api/%s/doc/" % (v1_api.api_name,),
-                            include('tastypie_swagger.urls', 
-                                    namespace='tastypie_swagger'),
-                            kwargs={'tastypie_api_module':'hs_core.api.v1_api',
-                                    'namespace':'tastypie_swagger'}
-                            ),
-                        url('^hsapi/', include('hs_core.urls')),
-                        url('^party/', include('hs_party.urls')),
-                        url('^hsapi/', include('hs_core.urls')),
+    url('^hsapi/', include('hs_core.urls')),
+    url('^hs_party/', include('hs_party.urls')),
+    url('^hs_metrics/', include('hs_metrics.urls')),
 )
 
 urlpatterns += patterns('',
