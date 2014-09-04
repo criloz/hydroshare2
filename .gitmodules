@@ -14,16 +14,12 @@
     path = django_irods 
     url = https://github.com/JeffHeard/django_irods.git
     branch = master
-
 [submodule "hs_party"]
 	path = hs_party
 	url = https://github.com/hydroshare/hs_party
 [submodule "hs_metrics"]
 	path = hs_metrics
 	url = https://github.com/hydroshare/hs_metrics.git
-[submodule "hs_metrics"]
-	path = hs_metrics
-	url = https://github.com/hydroshare/hs_metrics.git
 [submodule "django_docker_processes"]
 	path = django_docker_processes
-	url = https://github.com/hydroshare/django_docker_processes.git
+	url = https://github.com/JeffHeard/django_docker_processes.git
