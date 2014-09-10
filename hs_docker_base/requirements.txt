@@ -60,8 +60,8 @@ pytz==2013.9
 pyzmq==14.1.1
 readline==6.2.4.1
 redis==2.10.3
-requests==2.2.0
-requests-oauthlib==0.4.0
+requests
+requests-oauthlib
 rsa==3.1.2
 sh==1.09
 simplejson==3.3.1

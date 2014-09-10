@@ -31,6 +31,7 @@ urlpatterns = i18n_patterns("",
     url(r'^user/(?P<user>.*)/', theme.UserProfileView.as_view()),
     url(r'^verify/(?P<pk>[0-9]*)/', 'hs_core.views.verify'),
     url(r'^django_irods/', include('django_irods.urls')),
+    url(r'^django_docker_processes/', include('django_docker_processes.urls')),
     url(r'^autocomplete/', include('autocomplete_light.urls')),
 )
 
