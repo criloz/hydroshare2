@@ -27,3 +27,6 @@
 [submodule "ref_ts"]
 	path = ref_ts
 	url = https://github.com/hydroshare/ref_ts.git
+[submodule "hs_rhessys_inst_resource"]
+	path = hs_rhessys_inst_resource
+	url = https://github.com/hydroshare/hs_rhessys_inst_resource
