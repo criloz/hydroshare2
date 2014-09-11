@@ -30,3 +30,6 @@
 [submodule "hs_inst_res_ui"]
 	path = hs_inst_res_ui
 	url = https://github.com/hydroshare/hs_inst_res_ui
+[submodule "hs_rhessys_inst_resource"]
+	path = hs_rhessys_inst_resource
+	url = https://github.com/hydroshare/hs_rhessys_inst_resource.git
