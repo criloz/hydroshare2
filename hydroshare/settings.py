@@ -268,7 +268,7 @@ INSTALLED_APPS = (
     "hs_core",
     "hs_party",
     "hs_metrics",
-    "hs_inst_res_ui",
+    "hs_rhessys_inst_resource",
     #"hs_scholar_profile"
 )
 
