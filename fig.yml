@@ -2,6 +2,8 @@ postgis:
   image: jamesbrink/postgresql
 redis:
   image: dockerfile/redis
+rabbitmq: 
+  image: jamescarr/rabbitmq
 hydroshare:
   build: .
   environment:
@@ -15,14 +17,16 @@ hydroshare:
     PGPASSWORD: postgres
   volumes:
     - "media:/home/docker/hydroshare/static/media"
+    - "/home/jeff/hydroshare2:/home/docker/hydroshare"
   ports:
     - "1338:22"
-    - "8000:8000"
+    - "0.0.0.0:80:8000"
   links:
     - postgis:postgis
     - redis:redis
+    - rabbitmq:rabbitmq
   command: /bin/bash init
-worker:
+defaultworker:
   build: .
   environment:
     POSTGIS_HOST: postgis
@@ -35,7 +39,30 @@ worker:
     C_FORCE_ROOT: 1
   volumes_from:
     - hydroshare
+  volumes:
+    - "/var/run/docker.sock:/docker.sock"
   links:
     - postgis:postgis
     - redis:redis
-  command: celery worker -A hydroshare -E
+    - rabbitmq:rabbitmq
+  command: celery worker -A hydroshare -E -Q default
+dockerworker:
+  build: .
+  environment:
+    POSTGIS_HOST: postgis
+    POSTGIS_PORT: 5432
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    POSTGIS_PASSWORD: postgres
+    POSTGIS_DB: postgres
+    PGPASSWORD: postgres
+    C_FORCE_ROOT: 1
+  volumes_from:
+    - hydroshare
+  volumes:
+    - "/var/run/docker.sock:/docker.sock"
+  links:
+    - postgis:postgis
+    - redis:redis
+    - rabbitmq:rabbitmq
+  command: celery worker -A hydroshare -E -Q docker_container_tasks,docker_broadcast_tasks

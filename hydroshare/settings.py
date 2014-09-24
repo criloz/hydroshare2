@@ -269,6 +269,7 @@ INSTALLED_APPS = (
     "hs_party",
     "hs_metrics",
     "hs_rhessys_inst_resource",
+    "django_docker_processes",
     #"hs_scholar_profile"
 )
 

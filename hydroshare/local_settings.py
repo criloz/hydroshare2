@@ -1,5 +1,7 @@
 import redis
 import os
+from kombu import Queue, Exchange
+from kombu.common import Broadcast
 
 DEBUG = True
 
@@ -8,6 +10,9 @@ SECRET_KEY = "9e2e3c2d-8282-41b2-a027-de304c0bc3d944963c9a-4778-43e0-947c-38889e
 NEVERCACHE_KEY = "7b205669-41dd-40db-9b96-c6f93b66123496a56be1-607f-4dbf-bf62-3315fb353ce6f12a7d28-06ad-4ef7-9266-b5ea66ed2519"
 
 ALLOWED_HOSTS = "*"
+
+RABBITMQ_HOST = os.environ.get('RABBITMQ_PORT_5672_TCP_ADDR', 'localhost')
+RABBITMQ_PORT = '5672'
 
 REDIS_HOST = os.environ.get('REDIS_PORT_6379_TCP_ADDR', 'localhost')
 REDIS_PORT = 6379 
@@ -36,8 +41,30 @@ IPYTHON_BASE='/home/docker/hydroshare/static/media/ipython-notebook'
 IPYTHON_HOST='127.0.0.1'
 
 # celery settings
-BROKER_URL="redis://{REDIS_HOST}:6379/0".format(REDIS_HOST=REDIS_HOST)
+# customizations: we need a special queue for broadcast signals to all
+# docker daemons.  we also need a special queue for direct messages to all
+# docker daemons.
+BROKER_URL='amqp://guest:guest@{RABBITMQ_HOST}:{RABBITMQ_PORT}//'.format(RABBITMQ_HOST=RABBITMQ_HOST, RABBITMQ_PORT=RABBITMQ_PORT)
 CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+CELERY_DEFAULT_QUEUE = 'default'
+DOCKER_EXCHANGE=Exchange('docker', type='direct')
+DEFAULT_EXCHANGE=Exchange('default', type='topic')
+
+CELERY_QUEUES = (
+    Queue('default', routing_key='task.#'),
+    Queue('docker_container_tasks', DOCKER_EXCHANGE, routing_key='docker.container'),
+    Broadcast('docker_broadcast_tasks', DOCKER_EXCHANGE, routing_key='docker.broadcast'),
+)
+CELERY_DEFAULT_EXCHANGE = 'tasks'
+CELERY_DEFAULT_EXCHANGE_TYPE = 'topic'
+CELERY_DEFAULT_ROUTING_KEY = 'task.default'
+CELERY_ROUTES = ('django_docker_processes.router.Router',)
+
+DOCKER_URL = 'unix:///docker.sock'
+DOCKER_API_VERSION = '1.12'
+
+
+# CartoCSS
 CARTO_HOME='/home/docker/node_modules/carto'
 
 
