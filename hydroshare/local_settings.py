@@ -58,10 +58,10 @@ CELERY_QUEUES = (
 CELERY_DEFAULT_EXCHANGE = 'tasks'
 CELERY_DEFAULT_EXCHANGE_TYPE = 'topic'
 CELERY_DEFAULT_ROUTING_KEY = 'task.default'
-CELERY_ROUTES = ('django_docker_processes.router.Router',)
+CELERY_ROUTES = ('django_docker_processes.router.DockerRouter',)
 
 DOCKER_URL = 'tcp://192.168.59.103:2375/'
-DOCKER_API_VERSION = '1.12'
+DOCKER_API_VERSION = '1.14'
 
 
 # CartoCSS

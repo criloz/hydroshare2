@@ -23,3 +23,6 @@
 [submodule "django_docker_processes"]
 	path = django_docker_processes
 	url = https://github.com/JeffHeard/django_docker_processes.git
+[submodule "hs_rhessys_inst_resource"]
+	path = hs_rhessys_inst_resource
+	url = https://github.com/hydroshare/hs_rhessys_inst_resource
